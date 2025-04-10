@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   # root "posts#index"
   # match "*path", to: "application#preflight", via: [:options]
   resources :sessions, only: [ :create ]
+  resources :users, only: [ :index ]
 end

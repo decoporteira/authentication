@@ -24,7 +24,7 @@ module Authentication
       Current.session ||= find_session_by_token
     end
 
-    def find_session_by_cookie
+    def find_session_by_token
       Session.find_by(token: request.headers[:authorization]&.split(" ")[-1])
     end
 
