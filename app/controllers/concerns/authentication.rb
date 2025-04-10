@@ -21,11 +21,11 @@ module Authentication
     end
 
     def resume_session
-      Current.session ||= find_session_by_cookie
+      Current.session ||= find_session_by_token
     end
 
     def find_session_by_cookie
-      Session.find_by(id: cookies.signed[:session_id]) if cookies.signed[:session_id]
+      Session.find_by(token: request.headers[:authorization]&.split(" ")[-1])
     end
 
     def request_authentication
