@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   # match "*path", to: "application#preflight", via: [:options]
-  resources :sessions, only: [ :create ]
-  resources :users, only: [ :index ]
+  resources :sessions, only: [ :create, :new ]
+  resources :users, only: [ :index, :create ]
 end
