@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  allow_unauthenticated_access only: %i[index create]
-
+  allow_unauthenticated_access only: %i[ create]
+  # before_action :require_authentication, only: %i[index]
   def index
     render json: User.all
   end
@@ -16,6 +16,8 @@ class UsersController < ApplicationController
   end
 
   private
+
+
 
   def user_params
     params.require(:user).permit(:email_address, :password, :password_confirmation)

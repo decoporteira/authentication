@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :projects
   resource :session
   resources :passwords, param: :token
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -12,4 +13,5 @@ Rails.application.routes.draw do
   # match "*path", to: "application#preflight", via: [:options]
   resources :sessions, only: [ :create, :new ]
   resources :users, only: [ :index, :create ]
+  resources :projects, only: [ :index ]
 end
